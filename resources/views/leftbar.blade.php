@@ -1,0 +1,49 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="{{ Auth::user()->avatar ? Auth::user()->avatar : asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p class="text-capitalize"><a href="{{ route('profile') }}" class="text-white">{{ Auth::user()->username }}</a></p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+    <!-- search form -->
+    {{-- <form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </form> --}}
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header">MAIN NAVIGATION</li>
+      <li @if($active == 'dasbor') class="active" @endif>
+        <a href="{{ route('dasbor') }}">
+          <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="{{ $active == 'wajib-pajak.index' ? 'active' : '' }}">
+        <a href="{{ route('wajib-pajak.index') }}">
+          <i class="fa fa-paypal"></i> <span>Wajib Pajak</span>
+        </a>
+      </li>
+      @if(Auth::user()->role == 'superadmin')
+      <li class="{{ $active == 'akun.index' ? 'active' : '' }}">
+        <a href="{{ route('akun.index') }}">
+          <i class="fa fa-users"></i> <span>Akun</span>
+        </a>
+      </li>
+      @endif
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>
