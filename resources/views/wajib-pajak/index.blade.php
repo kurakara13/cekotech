@@ -108,12 +108,13 @@
     <td>{{ $d->nama_wajib_pajak }}</td>
     <td>{{ $d->alamat }}</td>
     <td>{{ $d->kelurahan }}</td>
-    <td>{{ $d->klu }}</td>
-    <td>{{ substr($d->tanggal_daftar, 8, 2).'-'.substr($d->tanggal_daftar, 5, 2).'-'.substr($d->tanggal_daftar, 0, 4) }}</td>
+    <td>{{ substr($d->klu,0,5) }}</td>
+    <td>{{ substr($d->tanggal_daftar, 0, 4).'-'.substr($d->tanggal_daftar, 8, 2).'-'.substr($d->tanggal_daftar, 5, 2) }}</td>
     {{-- <td>{{$d->tanggal_daftar}}</td> --}}
     <td>{{ $d->status }}</td>
     <td>{{ $d->no_hp }}</td>
-    <td>{{ $d->ar }}</td>
+    <td>{{ $d->nip_ar }}</td>
+
 {{--     <td>
       @if($role == Auth::user()->role)
       <div class="btn-group">
